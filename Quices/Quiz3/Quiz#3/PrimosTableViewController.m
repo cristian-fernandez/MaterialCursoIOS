@@ -46,6 +46,8 @@
         }else{
             [self.numerosArray  addObject:@{NUMERO_KEY: [NSString stringWithFormat:@"%d",i],PRIMO_KEY:@"NO"}];
         }
+        
+        //self.DOGaRRAY = [[NSArray alloc] initWithArray:dogsArray];
     }
 }
 - (void)didReceiveMemoryWarning {

@@ -10,6 +10,7 @@
 #import "Dog.h"
 #import "CustomTableViewCell.h"
 
+//mismo nombre del xib
 #define CUSTOM_CELL_IDENTIFIER @"CustomTableViewCell"
 
 @interface CustomTableView () <UITableViewDelegate,UITableViewDataSource>
@@ -21,12 +22,15 @@
 @implementation CustomTableView
 
 -(void)registerCustomCell{
+    //este metodo es como para inicializar la celda asociado a table
     UINib *nib = [UINib nibWithNibName:CUSTOM_CELL_IDENTIFIER bundle:nil];
+    //
     [self.tableView registerNib:nib forCellReuseIdentifier:CUSTOM_CELL_IDENTIFIER];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self registerCustomCell];
     [self initializeDogsArray];
     // Do any additional setup after loading the view.
 }
@@ -37,13 +41,26 @@
 }
 
 -(void)initializeDogsArray{
-    Dog *dog1 = [[Dog alloc] initWithName:@"Dog1" color:@"Color1"];
-    Dog *dog2 = [[Dog alloc] initWithName:@"Dog2" color:@"Color2"];
-    Dog *dog3 = [[Dog alloc] initWithName:@"Dog3" color:@"Color3"];
-    Dog *dog4 = [[Dog alloc] initWithName:@"Dog4" color:@"Color4"];
-    Dog *dog5 = [[Dog alloc] initWithName:@"Dog5" color:@"Color5"];
-    self.dogsArray = [[NSArray alloc] initWithObjects:dog1,dog2,dog3,dog4,dog5, nil];
+    NSMutableArray *dogArray = [NSMutableArray array];
+    for (int i = 1; i<100; i++) {
+        [dogArray addObject:[[Dog alloc] initWithName:[NSString stringWithFormat:@"Dog%d",i] color:[NSString stringWithFormat:@"Color%d",i]]];
+    }
+    self.dogsArray = [[NSArray alloc] initWithArray:dogArray];
     
+    
+//    
+//    Dog *dog1 = [[Dog alloc] initWithName:@"Dog1" color:@"Color1"];
+//    Dog *dog2 = [[Dog alloc] initWithName:@"Dog2" color:@"Color2"];
+//    Dog *dog3 = [[Dog alloc] initWithName:@"Dog3" color:@"Color3"];
+//    Dog *dog4 = [[Dog alloc] initWithName:@"Dog4" color:@"Color4"];
+//    Dog *dog5 = [[Dog alloc] initWithName:@"Dog5" color:@"Color5"];
+//    self.dogsArray = [[NSArray alloc] initWithObjects:dog1,dog2,dog3,dog4,dog5, nil];
+    
+}
+
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 160;
 }
 
 #pragma -MARK TABLE VIEW METHODS
@@ -51,7 +68,10 @@
     return self.dogsArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CUSTOM_CELL_IDENTIFIER];
+    Dog *dogToShow = self.dogsArray[indexPath.row];
+    [cell setupCellWithDogs:dogToShow];
+    return cell;
 }
 
 @end

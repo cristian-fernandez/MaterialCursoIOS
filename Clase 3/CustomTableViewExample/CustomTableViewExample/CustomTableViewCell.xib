@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elG-PS-gdQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+                        <rect key="frame" x="15" y="0.0" width="290" height="148"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-v8-jBc">
                                 <rect key="frame" x="0.0" y="0.0" width="42" height="148"/>
@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xk-Yi-Pl3">
-                                <rect key="frame" x="42" y="0.0" width="278" height="148"/>
+                                <rect key="frame" x="42" y="0.0" width="248" height="148"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,10 +33,10 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="elG-PS-gdQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7dU-Mp-YQn"/>
+                    <constraint firstItem="elG-PS-gdQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7dU-Mp-YQn"/>
                     <constraint firstAttribute="bottom" secondItem="elG-PS-gdQ" secondAttribute="bottom" id="Ddg-jG-NID"/>
                     <constraint firstItem="elG-PS-gdQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EIs-Ac-4S2"/>
-                    <constraint firstAttribute="trailing" secondItem="elG-PS-gdQ" secondAttribute="trailing" id="RR5-Jq-ImD"/>
+                    <constraint firstAttribute="trailing" secondItem="elG-PS-gdQ" secondAttribute="trailing" constant="15" id="RR5-Jq-ImD"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

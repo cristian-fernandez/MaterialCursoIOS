@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Dog;
 
 @interface CustomTableViewCell : UITableViewCell
-
+-(void)setupCellWithDogs:(Dog*)dog;
 @end
